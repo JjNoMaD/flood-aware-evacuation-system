@@ -1,0 +1,632 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 35px;
+
+  background: #111827;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.top-header h1 {
+  margin: 0;
+
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.top-header p {
+  margin: 6px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #86efac;
+
+  font-size: 14px;
+}
+
+.header-status span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  padding: 28px 35px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+
+  padding: 20px 24px;
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #f8fafc;
+}
+
+.stat-label {
+  margin-top: 5px;
+
+  font-size: 14px;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   CONTENT GRID
+   ========================================================= */
+
+.content-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    300px;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.map-panel,
+.info-panel {
+  background: #111827;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 12px;
+}
+
+.map-panel {
+  overflow: hidden;
+}
+
+.info-panel {
+  padding: 22px;
+  height: fit-content;
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.panel-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.panel-header h2,
+.info-panel h2 {
+  margin: 0;
+
+  font-size: 19px;
+}
+
+.panel-header p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESET BUTTON
+   ========================================================= */
+
+.reset-button {
+  border: 1px solid #334155;
+
+  background: #1e293b;
+
+  color: #e2e8f0;
+
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background: #334155;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.legend {
+  display: flex;
+
+  gap: 20px;
+
+  padding: 10px 22px;
+
+  border-bottom: 1px solid #1f2937;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.legend div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.legend-road {
+  width: 18px;
+  height: 2px;
+
+  background: #475569;
+
+  display: inline-block;
+}
+
+.legend-node {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #64748b;
+
+  display: inline-block;
+}
+
+.legend-shelter {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #facc15;
+
+  display: inline-block;
+}
+.legend-normal,
+.legend-flood,
+.legend-combined {
+  width: 18px;
+  height: 3px;
+  display: inline-block;
+}
+
+.legend-normal {
+  background: #3b82f6;
+}
+
+.legend-flood {
+  background: #22d3ee;
+}
+
+.legend-combined {
+  background: #f97316;
+}
+
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.map-container {
+  width: 100%;
+
+  height: 650px;
+
+  overflow: hidden;
+
+  background: #0b1120;
+
+  cursor: crosshair;
+}
+
+.network-svg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+}
+
+
+/* =========================================================
+   GRAPH ELEMENTS
+   ========================================================= */
+
+.road-line {
+  stroke: #334155;
+
+  stroke-width: 0.8;
+
+  stroke-opacity: 0.45;
+}
+/* =========================================================
+   EVACUATION ROUTES
+   ========================================================= */
+
+.route-normal {
+  stroke: #3b82f6;
+  stroke-width: 3;
+  stroke-opacity: 0.95;
+}
+
+.route-flood {
+  stroke: #22d3ee;
+  stroke-width: 3.5;
+  stroke-opacity: 0.95;
+}
+
+.route-combined {
+  stroke: #f97316;
+  stroke-width: 4.5;
+  stroke-opacity: 1;
+}
+
+.normal-node {
+  fill: #64748b;
+
+  cursor: pointer;
+}
+
+.normal-node:hover {
+  fill: #f8fafc;
+
+  r: 4;
+}
+
+.shelter-node {
+  fill: #facc15;
+
+  stroke: #fef08a;
+
+  stroke-width: 1.5;
+
+  cursor: pointer;
+}
+
+.recommended-shelter-node {
+  fill: #facc15;
+  stroke: #ffffff;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px #facc15);
+}
+
+.shelter-node:hover {
+  fill: #fde047;
+}
+
+.selected-node {
+  fill: #38bdf8;
+
+  stroke: white;
+
+  stroke-width: 2;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   INFO PANEL
+   ========================================================= */
+
+.empty-state {
+  margin-top: 45px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.empty-icon {
+  font-size: 28px;
+
+  margin-bottom: 12px;
+
+  color: #475569;
+}
+
+.empty-state p {
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   NODE DETAILS
+   ========================================================= */
+
+.node-title {
+  font-size: 22px;
+
+  font-weight: 700;
+
+  margin: 20px 0;
+}
+
+.detail-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.detail-row span {
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+.detail-row strong {
+  text-align: right;
+
+  font-size: 13px;
+
+  color: #f1f5f9;
+}
+
+.shelter-info {
+  margin-top: 20px;
+
+  padding: 15px;
+
+  background: #422006;
+
+  border: 1px solid #854d0e;
+
+  border-radius: 8px;
+
+  color: #fde68a;
+}
+
+.shelter-info strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 22px;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-screen {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #0f172a;
+
+  color: white;
+}
+
+.loading-screen p {
+  color: #94a3b8;
+}
+
+/* Map labels */
+
+.map-label {
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.start-label {
+  fill: #22c55e;
+}
+
+.shelter-label {
+  fill: #facc15;
+}
+/* ============================================================
+   ROUTE LEGEND
+   ============================================================ */
+
+.legend-normal,
+.legend-flood,
+.legend-combined {
+  display: inline-block;
+  width: 28px;
+  height: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.legend-normal {
+  background: #ff00ff;
+}
+
+.legend-flood {
+  background: #22d3ee;
+}
+
+.legend-combined {
+  background: #ff8c00;
+}
+
+.legend-start,
+.legend-recommended {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.legend-start {
+  background: #22c55e;
+}
+
+.legend-recommended {
+  background: #facc15;
+}
+
+
+/* =========================================================
+   CRITICAL EVACUATION JUNCTIONS
+   ========================================================= */
+
+.critical-info {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 18px 25px;
+  border-bottom: 1px solid #1f2937;
+  color: #94a3b8;
+}
+
+.critical-info > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.critical-info strong {
+  color: #f8fafc;
+}
+
+.critical-table {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.critical-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1.2fr 1.2fr;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #1f2937;
+  text-align: center;
+}
+
+.critical-header {
+  font-weight: 700;
+  color: #94a3b8;
+  background: #0f172a;
+}
+
+.critical-row:not(.critical-header) {
+  color: #e5e7eb;
+}
+
+.critical-row:not(.critical-header):hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.critical-row span {
+  min-width: 0;
+}
+
+.critical-row span:first-child {
+  font-weight: 600;
+  color: #f8fafc;
+}
